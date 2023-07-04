@@ -21,24 +21,24 @@ body {
 </style>
 </head>
 <body>
-<%@include file="index.jsp"%>
+<%@include file="RegLoginNav.jsp"%>
 <div class="center">
 <div class="card" style="width: 18rem;">
 
   <div class="card-body">
  <h2 class="text-center">LOGIN</h2>
-    <form>
+    <form action="Login"  method="post">
   
  
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
   
 
      <div class="form-group">
     <label for="exampleInputEmail1">Password</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="text" name="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
   <button type="submit" class="btn btn-primary">Login</button>
 </form>

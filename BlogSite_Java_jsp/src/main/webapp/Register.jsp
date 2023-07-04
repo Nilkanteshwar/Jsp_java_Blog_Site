@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Register</title>
 <style>
 .center {
 
@@ -21,30 +21,30 @@ body {
 </style>
 </head>
 <body>
-<%@include file="index.jsp"%>
+<%@include file="RegLoginNav.jsp"%>
 <div class="center">
 <div class="card" style="width: 18rem;">
 
   <div class="card-body">
- <h2 class="text-cemter">Register Students</h2>
-    <form>
+ <h2 class="text-cemter">Register</h2>
+    <form action="Registration" method="post">
   <div class="form-group">
     <label for="exampleInputEmail1">Username</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
  
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
   
    <div class="form-group">
     <label for="exampleInputEmail1">Phone Number</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="text" name="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
      <div class="form-group">
     <label for="exampleInputEmail1">Password</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="text"name="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

@@ -37,13 +37,13 @@
  	<form class="">
   <div class="mb-3">
     <label for="">Image</label>
-    <textarea class="form-control bb " id="" placeholder="New Post title here" ></textarea>
+    <textarea class="form-control bb " id="" placeholder="New Post title here"  ></textarea>
     <select class="form-select" aria-label="Default select example">
-  <option Disabled>Select a Tag Here</option>
+  <option Disabled >Select a Tag Here</option>
   <option value="1">One</option>
   <option value="2">Two</option>
   <option value="3">Three</option>
-   <textarea class="form-control bb2 " id="" placeholder="Write Your Post Content Here" ></textarea>
+   <textarea class="form-control bb2 " id="" placeholder="Write Your Post Content Here"  ></textarea>
    <button type="button" class="btn btn-primary">Publish</button>
 </select>
    
