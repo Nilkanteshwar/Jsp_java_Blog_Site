@@ -1,10 +1,18 @@
+<%@page import="java.sql.ResultSet"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<style>
+img{
+width:62%
+}
+
+</style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 </head>
 <body>
@@ -32,16 +40,34 @@
 <div class="col-8">
 <div class="card mb-3">
   <div class="row no-gutters">
-    <div class="col-md-4">
-      <img src="..." alt="...">
+   
+    <form action="" method="">
+   <%!  %>
+    </form>
+    <%
+    
+        ResultSet result=(ResultSet)request.getAttribute("result");
+        while(result.next()){%>
+			 <div class="col-md-4">
+     <img src="<%= result.getString(4) %>" alt="...">
     </div>
-    <div class="col-md-8">
+    	 <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <h5 class="card-title"><%=result.getString(1) %></h5>
+        <p class="card-text"><%=result.getString(2) %></p>
+        <p class="card-text"><small class="text-muted"><%=result.getString(3) %></small></p>
       </div>
     </div>
+    	
+  <% }%>  
+    
+    
+    
+ 
+    
+    
+    
+    
   </div>
 </div>
 </div>

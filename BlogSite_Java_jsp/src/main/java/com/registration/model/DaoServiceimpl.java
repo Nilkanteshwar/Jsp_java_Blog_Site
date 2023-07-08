@@ -63,4 +63,30 @@ private Statement stmnt;
 
 	}
 
+	@Override
+	public void saveBlog(String title, String tags, String content, String image) {
+		try {
+			stmnt.executeUpdate("INSERT INTO  blogs values ('" + title + "','" + tags + "','" + content + "','"+image+"')");
+			
+		System.out.println("--data inserted into the table--");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public ResultSet Blogs() {
+		try {
+			ResultSet result=stmnt.executeQuery("select * from blogs");
+			return result;
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return null;
+		
+	}
+
 }

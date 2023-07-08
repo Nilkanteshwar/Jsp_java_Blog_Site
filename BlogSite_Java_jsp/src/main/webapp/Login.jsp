@@ -41,6 +41,7 @@ body {
     <input type="text" name="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
   <button type="submit" class="btn btn-primary">Login</button>
+  <p>New User?<a href="Register.jsp">Register</a></p>
 </form>
   </div>
 </div>
