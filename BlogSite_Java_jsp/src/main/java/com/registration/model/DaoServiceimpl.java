@@ -1,6 +1,9 @@
 package com.registration.model;
 
 import java.sql.*;
+import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 public class DaoServiceimpl implements DaoService {
 private Connection con;
@@ -64,9 +67,9 @@ private Statement stmnt;
 	}
 
 	@Override
-	public void saveBlog(String title, String tags, String content, String image) {
+	public void saveBlog( String email ,String title, String tags, String content, String image) {
 		try {
-			stmnt.executeUpdate("INSERT INTO  blogs values ('" + title + "','" + tags + "','" + content + "','"+image+"')");
+			stmnt.executeUpdate("INSERT INTO  blogs values ('" + email + "','" + title + "','" + tags + "','" + content + "','"+image+"')");
 			
 		System.out.println("--data inserted into the table--");
 		} catch (Exception e) {
@@ -88,5 +91,21 @@ private Statement stmnt;
 		return null;
 		
 	}
+
+	@Override
+	public ResultSet Dashboard(HttpServletRequest request) {
+	    try {
+	        HttpSession session = request.getSession();
+	        String email = (String) session.getAttribute("email");
+	        ResultSet result = stmnt.executeQuery("select * from blogs where email='" + email + "'");
+	        return result;
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return null;
+	}
+
+
+
 
 }

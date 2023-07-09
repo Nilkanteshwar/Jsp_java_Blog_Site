@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.registration.model.DaoService;
 import com.registration.model.DaoServiceimpl;
@@ -42,11 +43,13 @@ public class BlogContentController extends HttpServlet {
 		String content=request.getParameter("content");
 		String tags=request.getParameter("tags");
 		String image=request.getParameter("image");
+		HttpSession session = request.getSession();
+		 String email = (String)session.getAttribute("email");
 		System.out.println(title);
 		System.out.println(content);
 		DaoService service = new DaoServiceimpl();
 		service.connectDB();
-		service.saveBlog( title, tags, content, image);
+		service.saveBlog(email, title, tags, content, image);
 		System.out.println("saved your blog");
 		
 	}

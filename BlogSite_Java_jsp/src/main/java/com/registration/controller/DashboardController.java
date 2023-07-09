@@ -15,24 +15,22 @@ import com.registration.model.DaoService;
 import com.registration.model.DaoServiceimpl;
 
 /**
- * Servlet implementation class BlogContentView
+ * Servlet implementation class DashboardController
  */
-@WebServlet("/BlogContentView")
-public class BlogContentView extends HttpServlet {
+@WebServlet("/DashboardController")
+public class DashboardController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BlogContentView() {
+    public DashboardController() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DaoService service=new DaoServiceimpl();
 		service.connectDB();
 		ResultSet result = service.Blogs();
@@ -42,6 +40,5 @@ public class BlogContentView extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/BlogPage.jsp");
 		rd.forward(request, response);
 	}
-
 
 }

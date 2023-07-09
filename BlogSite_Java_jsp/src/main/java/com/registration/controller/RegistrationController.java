@@ -1,6 +1,10 @@
 package com.registration.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.ResultSet;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -45,11 +49,21 @@ public class RegistrationController extends HttpServlet {
 		DaoService service = new DaoServiceimpl();
 		service.connectDB();
 		service.saveReg(username, email, number, password);
-		
-		 
-		 
-		
-	
-	}
+		ResultSet result = service.Blogs();
+		request.setAttribute("result", result);
+	     
+		 response.setContentType("text/html");
+		 PrintWriter out = response.getWriter();
+		 out.println("<script>alert('Registered successfully!');</script>");
+		   try {
+	            Thread.sleep(3000); // 30 seconds = 30,000 milliseconds
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+	        
+	        // Forward the request after the delay
+	        RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
+	        rd.forward(request, response);
+	    }
 
-}
+	}
